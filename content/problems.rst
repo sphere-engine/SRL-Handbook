@@ -227,6 +227,8 @@ visit the section :ref:`advanced test case judges <judges-advanced>`.
 
   For example when user's solution prints " |_| |_| |_| *81* |_| |_| |_| |_| " as a result for *"3 4"* problem instance it is still correct answer.
 
+.. _judges-master:
+
 Master judge
 ~~~~~~~~~~~~
 
@@ -269,7 +271,7 @@ Complete example
 We have discussed all components of the problem specification therefore we are able to present whole problem setting:
 
 
-.. admonition:: Complete Example
+.. admonition:: Complete *The Integer Power* Example
   :class: note
 
   **Title:** The Integer Power

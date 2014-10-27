@@ -265,4 +265,6 @@ rst_epilog = """
 .. |_| unicode:: 0xA0 
    :trim:
 .. |le|       unicode:: U+02264 .. LESS-THAN OVER EQUAL TO
+.. |sdot|     unicode:: U+022C5 .. DOT OPERATOR
+.. |pi|  unicode:: U+003C0 .. GREEK SMALL LETTER PI
 """

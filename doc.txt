@@ -1,0 +1,22 @@
+======================================================
+Magazyn danych, których bojê siê póŸniej d³ugo szukaæ:
+======================================================
+
+Definicje znaków specjalnych
+----------------------------
+http://docutils.sourceforge.net/docs/ref/rst/definitions.html
+
+
+Zintegrowane boxy:
+------------------
+attention
+caution
+danger
+error
+hint
+important
+note
+tip
+warning
+admonition (custom title)
+

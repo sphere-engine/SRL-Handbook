@@ -1,15 +1,6 @@
 ##########
 Dictionary
 ##########
-
-
-**Sphere Engine**
-  Platforma do weryfikacji praktycznych umiejętności programistycznych. Posiada wbudowany zestaw kompilatorów oraz bazę zadań testowych. 
-  System pozwala na automatyczną ocenę nadsyłanych rozwiązań, które dostarczane są w postaci kodów źródłowych.
-  
-**Sphere Contest**
-  Platforma do weryfikacji praktycznych umiejętności programistycznych.  Posiada wbudowany zestaw kompilatorów oraz bazę zadań testowych. 
-  System pozwala na automatyczną ocenę nadsyłanych rozwiązań, które dostarczane są w postaci kodów źródłowych.
          
 **Problem**
   The challange task for service's users which is the basic element of the service and it contains:
