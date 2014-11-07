@@ -12,12 +12,13 @@ Contents:
    :maxdepth: 3
 
    content/welcome.rst
-   content/dictionary.rst
    content/introduction.rst
    
    content/problems.rst
-   content/submissions.rst
+   content/problem-example.rst
+
    content/judges.rst
+   content/writing-judges.rst
    
    content/appendix.rst
 

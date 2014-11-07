@@ -8,13 +8,19 @@ We have mentioned that the problem setter can choose from default test cases jud
 Test case judges
 ----------------
 
-There are five default test case judges:
+Each judge returns piece of information about execution of the submission:
+ - execution time
+ - used memory
+ - status (look :ref:`statuses <appendix-statuses>`)
+ - score (optional)
 
-**Strict**
-  It requires output files to be identical.
+.. important::
+  Execution time and used memory are obtained automaticaly from system. The score depends on judge design and can take any value.
+
+There are six default test case judges:
   
-**Ignoring differences in whitespaces**
-  Similar to the previous one but it ignores all extra whitespaces. It is the standard 
+**Ignoring extra whitespaces** (id = 1)
+  It compares output files up to extra whitespaces. It is the standard 
   judge for all problems with exactly one correct solution (in particular for binary problems).
   
   .. admonition:: Example
@@ -22,7 +28,7 @@ There are five default test case judges:
 
     The problem of prime factorisation of the number (i.e. for a number *n* find the prime factors *p*\ :sub:`1`\, *p*\ :sub:`2`\, ..., *p*\ :sub:`k`\ that *n* = *p*\ :sub:`1`\ |sdot| *p*\ :sub:`2`\ |sdot| ... |sdot| *p*\ :sub:`k`\). It is known that the prime factorisation of the number is unique up to the order of prime factors so if we require in output specification to write sorted list of factors there is only one good answer to the problem.
 
-**Ignoring floating point errors up to 10^-2**
+**Ignoring floating point errors up to 10^-2** (id = 2)
   It allows the floating point numbers to be inaccurate i.e. we can accept the errors up 
   to *0.01*. It is good choice for problems when the result is an approximation which don't 
   require good precision.
@@ -32,17 +38,17 @@ There are five default test case judges:
 
     The problem of the triangle area, i.e. for given integer side lenghts *a*, *b*, *c* calculate the area of the triangle. In general the result is not an integer and accuracy is not crucial.
 
-**Ignoring floating point errors up to 10^-6**
+**Ignoring floating point errors up to 10^-6** (id = 3)
   it allows the floating point numbers to be inaccurate i.e. we can accept the errors up 
   to *0.000001*. When you need a good precision it is obviously better choice than the previous judge.
 
   .. admonition:: Example
     :class: note
 
-    The problem of the value of the *sine* function. The range of the sine function is *[-1,1]* thus the precision is important.
+    The problem of the value of the *sine* function. The range of the sine function is [*-1,1*] thus the precision is important.
 
-**Score is source length**
-  it is the modification of the *Ignoring differences in whitespaces* judge i.e. it verifies 
+**Score is source length** (id = 4)
+  it is the modification of the *Ignoring extra whitespaces* judge i.e. it verifies 
   the correctness of the solution in the same manner but in addition it returns the score which 
   is the length of the source code. The judge is designed for challange type problems where the 
   objective is to solve the problem with the shortest source code.
@@ -52,31 +58,67 @@ There are five default test case judges:
 
     The problem of determining first *n* numbers in decimal expansion of the number |pi| for given *n*. The challange is to solve that problem with the shortest possible source code.
 
+**Akademia** (id = 9)
+  TODO: Opis i nazwa taka polsko brzmiąca.
+
+**Exact judge** (id = 10)
+  It requires output files to be identical.
+
+
 .. _master-judges-normal:
 
 Master judges
 -------------
 
-We have two default master judges both were described in section :ref:`problems <judges-master>`:
+Each master judge returns piece of information about the submission:
+ - execution time
+ - used memory
+ - status (look :ref:`statuses <appendix-statuses>`)
+ - score (optional)
 
-**Generic masterjudge**
-  It gathers information from test case judges and requires each of them to achieve *"accepted"* as the result to establish final result as the *"accepted"*.
+The master judge can arbitrarily set each part of that information based on the information received from test case judges (look :ref:`diagram <submission-flow-digram>`). In our default master judges we assumed following natural convention for that values:
 
-  When any test case ends with error the final answer is inherited from the first failed test case. For example when the problem has five test cases and the second and the fourth ones failed, the final result is inherited from the second test case. 
+Execution time
+  The overall execution time is the sum of times from test case judges.
+
+Used memory
+  The overall used memory is the maxumum value of used memory from test case judges.
+
+.. important::
+  The final status and the score can be freely combined based on statuses and scores from test case judges.
+
+We have two default master judges both mentioned in section :ref:`problems <judges-master>`:
+
+**Generic masterjudge** (id = 1000)
+  It gathers information from test case judges and requires each of them to achieve *"accepted"* status to establish final status as the *"accepted"*.
+
+  When any test case ends with error the final answer is inherited from the first failed test case. For example when the problem has five test cases and the second and the fourth ones failed, the final result is inherited from the second test case.
+
+  Example result from `SPOJ <http://www.spoj.com>`_:
+
+  .. image:: ../_static/status-generic.png
+   :width: 700px
+   :align: center
 
   Generic masterjudge combines the execution times of all testcases and yields the sum as the final score.
   
   .. tip::
     It is a proper choice when the problem setter requires that the solution fulfills all his requirements i.e. it is correct and sufficiently efficient.
   
-**Score is % of correctly solved sets**
+**Score is % of correctly solved sets** (id = 1001)
   It is a more liberal masterjudge which allows to accept incomplete solution with the score which is the 
   percentage of correctly solved test cases. 
 
-  For example when the problem has five test cases and again the second and the fourth ones failed but the rest was passed, the final score is equal to *60%*. The advantage is that the user gets more information about the correctness level of its solution.
+  Example result from `SPOJ <http://www.spoj.com>`_:
+  
+  .. image:: ../_static/status-percentage.png
+   :width: 700px
+   :align: center
+
+  For example when the problem has five test cases and only the second failed, the final score is equal to *80%*. The advantage is that the user gets more information about the correctness level of its solution.
 
   .. tip::
-  It is a proper choice when the problem setter wants to distinguish user's solutions. It is possible to design test cases to be easier or more difficult to pass.
+    It is a proper choice when the problem setter wants to distinguish user's solutions. It is possible to design test cases to be easier or more difficult to pass.
 
   .. admonition:: Example
     :class: note
@@ -92,102 +134,3 @@ We have two default master judges both were described in section :ref:`problems 
 
   The least advanced (but in some way correct) solutions will pass the first test case and achieve the result of *33%* while the more complex solutions (implementing big numbers) are able to pass the first and the second test and achieve the result of *66%*. To achieve the best result of *100%* the solution needs to implement both big numbers and fast power algorithms to pass all three test cases.
         
-.. _judges-advanced:
-        
-Advanced test case judges
--------------------------
-
-In the previous section we have discussed default test case judges which are sufficient for most situations. 
-However there are problems which require individual solutions due to nature of the problem. In this section 
-we present examples of the problems along with descriptions of test case judges.
-
-Test case judge has access to the following information:
- * model input
- * model output
- * user's output
- * user's source code
-
-Impossible model output file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. admonition:: Task example
-  :class: note
-
-  For given function *f* find its root i.e. the argument *x*\ :sub:`0`\ that *f* ( *x*\ :sub:`0`\ ) = *0*.
-
-In general there are many solutions to the problem, for example for polynomial *x*\ :sup:`2`\ + *x* - *2* the numbers *1* and *-2* are both correct answers. 
-
-You can see that it is hard to prepare model output file in test case. There are possibly infinitely many solutions for the certain functions thus it is impossible to keep all of them in the output file. It forces us to use different approach.
-
-.. admonition:: Judge description
-  :class: note
-
-  The test case judge should verify the condition from the problem task i.e. for the user's answer from the output file it should check if that answer is a root of the function.
-
-  Test case judge uses his access to model input file to read the problem instance.
-
-
-Ambiguous model output file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. admonition:: Task example
-  :class: note
-
-  For given graph *G* with *n* vertices *1*, *2*, ..., *n* determine if it has hamiltonian cycle (i.e. closed loop through a graph that visits each node exactly once). If the hamiltonian cycle exists print it as a sequence of vertices.
-
-It is easy to see that *1-2-3-1* is the same cycle as *2-3-1-2*. We could add the requirement to start with the smallest vertex number. Unfortunately it is possible that there exists many different hamiltonian cycles which are not cyclic shifts. We could again use the previous approach and verify if user's answer is really hamiltonian cycle. Alternatively we can build model output file with all possible hamiltonian cycles:
-
-.. admonition:: Judge description
-  :class: note
-
-  For user's answer the judge looks for that specific one on the list contained in model output file.
-
-.. caution::
-  It can be problematic to keep all answers due to possible huge number of good solutions.
-
-
-.. _master-judges-advanced:
-
-Advanced master judges
-----------------------
-
-Similarly to test case judges it is possible to create custom master judges. In certain situations the problem setter may want to extend functionality of existing master judge or even implement brand new one. In this section we present examples of the master judges along with a motivation.
-
-Master judge has access to the following information:
- * results from test case judges
- * user's source code
-
-.. _master-judges-weighted:
-
-Weighted % of correctly solved sets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Here we present the generalisation of *Score is % of correctly solved sets* master judge. It was a little disadventage that each test case is worth the same and to increase to influence of some submission's aspect you were forced to produce many test cases.
-
-For example when your test cases verify three aspects *A*, *B* and *C* of the problem and you would like to put weights *20%*, *30%* and *50%* respectively, you were able to do that by creating *10* test cases. Two of them responsible for an aspect *A*, three of them responsible for an aspect *B* and five of them responsible for an aspect *C*. However it is inconvenient and you can consider following idea:
-
-.. admonition:: Master judge description
-  :class: note
-
-  Master judge has the information about the number of test cases and weights which it should assign to each test case. The final score is the weighted sum of accepted test cases.
-
-  For example for three test cases *a,b,c* and weights *20%, 30%, 50%* the submission gets one of the possible results depending on passed test cases:
-
-   * **no test case passed** - *0%*
-   * **a** - *20%*
-   * **b** - *30%*
-   * **a,b** - *50%*
-   * **c** - *50%*
-   * **a,c** - *70%*
-   * **b,c** - *80%*
-   * **a,b,c** - *100%*
-
-Forbidden structures in source code
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The problem setter may require that the solution cannot use some programming structures. For example he may want to allow to use language *C++* but with no access to STL library to force users to implement efficent data structures manually. Another example is to restrict source codes to not use loop structures to support only solutions based on recursion.
-
-.. admonition:: Master judge description
-  :class: note
-
-  Master judge uses access to the user's source code to detect usages of forbidden keywords (for example loops: while, for, goto). When forbidden keyword is detected the final status is set to *wrong aswer* in other case the master judge performs classical verification (for example the same as Generic masterjudge).

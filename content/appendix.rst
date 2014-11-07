@@ -6,7 +6,7 @@ Appendix
 Good test cases design
 ----------------------
 
-It is common misunderstanding which leads to bad test cases design. The number of test cases assigned to the problem is limited to *64*. The individual test case is not intended to test only one problem instance.
+It is common misunderstanding which leads to bad test cases design. The number of test cases assigned to the problem is limited. The individual test case is not intended to test only one problem instance.
 
 .. tip::
   We recommend you to redesign your input / output specification to handle with multiple problem instances in one test case. 
@@ -29,7 +29,7 @@ We could design the input / output specification to calculate the sum only for t
   **Output**
     Program should write a single number which is the value of *a* + *b*.
             
-It is correct but it is highly not recommended. First of all even *64* test cases cover a small part of the possible problem instances. Secondly, the execution of each test case is time consuming (about *2s* additional time for each test case).
+It is correct but it is highly not recommended. First of all using even all possible slots for test cases cover a small part of the possible problem instances. Secondly, the execution of each test case is time consuming (about *2s* additional time for each test case).
            
 We recommend to redesign the input / output specification in following manner:
 

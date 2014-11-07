@@ -1,6 +1,5 @@
-##########
 Dictionary
-##########
+==========
          
 **Problem**
   The challange task for service's users which is the basic element of the service and it contains:

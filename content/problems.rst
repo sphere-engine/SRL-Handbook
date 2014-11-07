@@ -49,7 +49,7 @@ Now we can explain that every submission needs to have precised
 *programming language* to choose proper compiler or interpreter. The problem description is the 
 crucial part for users to make it possible to solve the problem.
 
-Now let us recall the *Integer Power* problem since we are going to use it as a demonstration 
+Let us recall the *Integer Power* problem since we are going to use it as a demonstration 
 example. The task described in the problem is to compute the value of *b = a*\ :sup:`b` \ for given 
 integers *a* and *b*
 
@@ -174,7 +174,9 @@ Referring to the *Integer Power* problem we present how we could prepare followi
 
 We have already pointed that one of the features of online judging is the possiblity of estimating 
 the time complexity. To achieve that the author of the problem has to adjust the timeout for program 
-execution. Consider the case when the author knows two different algorithms for a problem, say *A* and *B*. 
+execution. 
+
+Consider the case when the author knows two different algorithms for a problem, say *A* and *B*. 
 Let us assume that the algorithm *A* is noticeably faster than the algorithm *B*. It is not very 
 easy and obvious how to preper test cases to distinguish between these two algorithms. However, 
 assuming that we have input data which is processed in the time *t*\ :sub:`A`\ for the algorithm *A* 
@@ -195,6 +197,7 @@ will pass the test case and *B*-like algorithms will fail it due to exceeding th
 .. _judges-simple:
 
 **Judge**
+
 The judge is a program which process user's output file after execution. Its task is to establish if the 
 submission passed the test case and potentially also returns *the score*. When the user's program pass the 
 test case the returned status is *"accepted"*.
@@ -202,28 +205,26 @@ test case the returned status is *"accepted"*.
 Usually the judge implementation is reduced to compare the model output file with the user's output file. 
 We support problem setters with default judges:
 
-  * **Strict** - it requires output files to be identical 
-  * **Ignoring differences in whitespaces** - similar to the previous one but it ignores all extra whitespaces
-  * **Ignoring floating point errors up to a specific position** - it allows the floating point numbers to be 
-    inaccurate i.e. we can accept the errors up to for example *0.001*
+  * **Ignoring extra whitespaces** - compares output files up to extra whitespaces
+  * **Ignoring floating point errors up to a specific position** - allows the floating point numbers to be 
+    inaccurate i.e. we can accept the errors up to for example *0.01*
+  * **Exact judge** - requires output files to be identical 
 
+More information about default judges you can find in the section :ref:`judges <judges-normal>`. You find there also information about *the score*, for now you can assume that the score is the test case execution time.
 
 .. tip::
-  The *Ignoring differences in whitespaces* judge is one of the most popular default choice. It is more liberal for output formating errors which in fact doesn't affect on the solution semantic correctness. 
+  The *Ignoring extra whitespaces* judge is one of the most popular default choice. It is more liberal for output formating errors which in fact doesn't affect on the solution semantic correctness. 
 
   Similarly *Ignoring floating point errors up to a specific position* judge is popular choice for problems where result numbers are not integers.
 
-We have mentioned that the judge can also return *the score*. More information will be presented in the section 
-:ref:`judges <judges-normal>`, for now you can assume that the score is the test case execution time.
-
 It is possible to create custom test case judges. The author can implement any kind of verification having full 
 access to the input file, base input file, user's output file and even user's source code. For more information 
-visit the section :ref:`advanced test case judges <judges-advanced>`.
+visit the section :ref:`writing test case judges <judges-advanced>`.
 
 .. admonition:: Example (part 6)
   :class: note
   
-  For the *Integer Power* problem we decide to use default *Ignoring differences in whitespaces* judge for each test case thus we allow the user to generate extra whitespaces before and after the resulting number *a*\ :sup:`b`\. 
+  For the *Integer Power* problem we decide to use default *Ignoring extra whitespaces* judge for each test case thus we allow the user to generate extra whitespaces before and after the resulting number *a*\ :sup:`b`\. 
 
   For example when user's solution prints " |_| |_| |_| *81* |_| |_| |_| |_| " as a result for *"3 4"* problem instance it is still correct answer.
 
@@ -240,22 +241,15 @@ cases to produce the final result which is the status and the score. You can loo
 There are predefined master judges proper for most situations:
 
   * **Generic masterjudge** - it gathers information from test case judges and requires each of them to achieve *"accepted"* as the result to establish final result as the *"accepted"*. 
-
-    When any test case ends with error the final answer is inherited from the first failed test case. For example when the problem has five test cases and the second and the fourth ones failed, the final result is inherited from the second test case. 
-
-    Generic masterjudge combines the execution times of all testcases and yields the sum as the final score.
   
-
   * **Score is % of correctly solved sets** - it is a more liberal masterjudge which allows to accept incomplete solution with the score which is the percentage of correctly solved test cases. 
 
-    For example when the problem has five test cases and again the second and the fourth ones failed but the rest was passed, the final score is equal to *60%*. 
-
-    The advantage is that the user gets more information about the correctness level of its solution.
+You can learn more in :ref:`Master judges <master-judges-normal>`.
 
 .. hint::
   When you need to use more complex master judge it is possible to create the new one or modify the existing ones. You have access to the source code of default master judges and they can be used as a base for your modifications. 
 
-  Further information about designing master judges you can find in the section :ref:`Advanced master judges <judges-advanced>`.
+  Further information about designing master judges you can find in the section :ref:`writing master judges <judges-advanced>`.
 
 .. admonition:: Example (part 6)
   :class: note
@@ -284,7 +278,7 @@ We have discussed all components of the problem specification therefore we are a
       **Input** 
         In the only line of the input there will be two integer numbers *1 |le| a |le| 8* and *0 |le| b |le| 10* separated by a single space character.
       **Output** 
-        Program should write a single number which is a value of *a<sup>b</sup>*.</strong>
+        Program should write a single number which is a value of *a*\ :sup:`b`\.
 
     **Examples**
       **Example 1**
@@ -306,7 +300,7 @@ We have discussed all components of the problem specification therefore we are a
       | **Output file**
       | 81
       | 
-      | **Judge:** Ignoring differences in whitespaces
+      | **Judge:** Ignoring extra whitespaces
       | **Time limit:** 1s
 
     **Test case 2**
@@ -315,7 +309,7 @@ We have discussed all components of the problem specification therefore we are a
       | **Output file**
       | 1
       | 
-      | **Judge:** Ignoring differences in whitespaces
+      | **Judge:** Ignoring extra whitespaces
       | **Time limit:** 1s
 
 
