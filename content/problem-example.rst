@@ -112,7 +112,12 @@ Both programs are correct answers to the problem but if we want to distinguish t
 .. note::
   It highly depends on the computational power of the machine that runs test cases. We present test cases that are valid for the computer of this text's author. 
 
-Our suggestion is to design one test case which is easy to pass for both algorithms to give information that the solution is correct and the second test case that is possible to pass only for the second algorithm. It can give an information to the user, that his solution is correct but too slow. The user submitting solution similar to the first one will get information about test cases and will be able to see that his program passes first test case and exceed time limit in the second test case.
+Our suggestion is to design one test case which is easy to pass for both algorithms to give information that the solution is correct and the second test case that is possible to pass only for the second algorithm. It can give an information to the user, that his solution is correct but too slow.
+
+.. tip::
+  It is a good practice to design first test case to be the same as input / output example from the problem description. In this way, the user can verify his input and output management.
+
+The user submitting solution similar to the first one will get information about test cases and will be able to see that his program passes first test case and exceed time limit in the second test case.
 
 We cannot put all input and output data here because of its size thus we write it in shortened manner:
 

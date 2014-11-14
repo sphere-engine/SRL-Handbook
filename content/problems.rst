@@ -41,13 +41,9 @@ appearance of the *master judge* component. Since we have introduced possibility
 cases (input, output and judge) thus we need the summary component to combine the results from 
 test case judges - we call that summary component *master judge*. 
 
-The other new elements of the 
-diagram was mentally present before but we purposely omited them to keep the previous view as 
-simple as possible. 
+Every submission needs to have precised *programming language* to choose proper compiler or interpreter. 
 
-Now we can explain that every submission needs to have precised 
-*programming language* to choose proper compiler or interpreter. The problem description is the 
-crucial part for users to make it possible to solve the problem.
+The problem description is the crucial part for users to make it possible to solve the problem.
 
 Let us recall the *Integer Power* problem since we are going to use it as a demonstration 
 example. The task described in the problem is to compute the value of *b = a*\ :sup:`b` \ for given 
@@ -65,8 +61,13 @@ the user's point of view.
 **The task**
 
 The formal text that describes the specificity of the problem usually in mathematical manner. 
-To achieve good quality of the description it is a good habit to graphically illustrate the 
-problem. It is also desirable to support a dry theory with simple examples.
+
+.. admonition:: Tips
+  :class: tip
+
+  To achieve good quality of the description it is a good habit to:
+    * graphically illustrate the problem,
+    * support a dry theory with simple examples.
 
 Referring to the *Integer Power* problem we could write the taks as follows:
 
@@ -81,8 +82,10 @@ Referring to the *Integer Power* problem we could write the taks as follows:
 The previous part was formal from the mathematical perspective but not syntactically. Automatic 
 judging is only possible when we can make an assumption on the problems's input and output behaviour. 
 The interior of the user's program is a black box for us right now. We specify what is the input file 
-structure to make it possible for users to implement proper input reading. The specification of input 
-file should be an information that user can rely on.
+structure to make it possible for users to implement proper input reading. 
+
+.. tip::
+  The specification of input file should be an information that user can rely on.
 
 On the other hand we expect that user produces output file with a predictable structure. Formal 
 specification of the output file is an information that we are going to rely on to verify the correctness 
@@ -107,10 +110,7 @@ was the solution with the human readable interface and after that we modified th
 
 **Input / output examples**
 
-In the task subsection we mentioned that it is a good habit to ilustrate the problem with the examples. 
-The examples here are dedicated to ilustrate the input and output files structure. In the best case scenario 
-they cover every distinct configuration of parameters (up to numbers, letters etc.) which is important for 
-more complex problems.
+.. The examples here are dedicated to ilustrate the input and output files structure. In the best case scenario they cover every distinct configuration of parameters (up to numbers, letters etc.) which is important for more complex problems.
 
 Referring to the *Integer Power* problem we present how we could compose the examples:
 
@@ -146,8 +146,8 @@ Input file contains the problem instance and it must be consistent with the inpu
 The output file should contain corresponding correct answers formatted in accordance to the 
 output specification.
 
-of the correct program should be contained in the output file. It is not necessery to write the 
-solution to the program to create the output file - it can be obtained in any manner.
+.. note::
+  It is not necessery to write the solution to the program to create the model output file - it can be obtained in any manner.
 
 Referring to the *Integer Power* problem we present how we could prepare following test cases:
 
@@ -215,7 +215,7 @@ More information about default judges you can find in the section :ref:`judges <
 .. tip::
   The *Ignoring extra whitespaces* judge is one of the most popular default choice. It is more liberal for output formating errors which in fact doesn't affect on the solution semantic correctness. 
 
-  Similarly *Ignoring floating point errors up to a specific position* judge is popular choice for problems where result numbers are not integers.
+.. Similarly *Ignoring floating point errors up to a specific position* judge is popular choice for problems where result numbers are not integers.
 
 It is possible to create custom test case judges. The author can implement any kind of verification having full 
 access to the input file, base input file, user's output file and even user's source code. For more information 

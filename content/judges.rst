@@ -21,12 +21,14 @@ There are six default test case judges:
   
 **Ignoring extra whitespaces** (id = 1)
   It compares output files up to extra whitespaces. It is the standard 
-  judge for all problems with exactly one correct solution (in particular for binary problems).
+  judge for all problems with exactly one correct solution (in particular for :ref:`binary problems <dictionary-binary-problem>`).
   
   .. admonition:: Example
     :class: note
 
-    The problem of prime factorisation of the number (i.e. for a number *n* find the prime factors *p*\ :sub:`1`\, *p*\ :sub:`2`\, ..., *p*\ :sub:`k`\ that *n* = *p*\ :sub:`1`\ |sdot| *p*\ :sub:`2`\ |sdot| ... |sdot| *p*\ :sub:`k`\). It is known that the prime factorisation of the number is unique up to the order of prime factors so if we require in output specification to write sorted list of factors there is only one good answer to the problem.
+    The prime number problem (i.e. for a number *n* determine if *n* is a prime number and then return *1* as a result, otherwise result is *0*).
+
+.. The problem of prime factorisation of the number (i.e. for a number *n* find the prime factors *p*\ :sub:`1`\, *p*\ :sub:`2`\, ..., *p*\ :sub:`k`\ that *n* = *p*\ :sub:`1`\ |sdot| *p*\ :sub:`2`\ |sdot| ... |sdot| *p*\ :sub:`k`\). It is known that the prime factorisation of the number is unique up to the order of prime factors so if we require in output specification to write sorted list of factors there is only one good answer to the problem.
 
 **Ignoring floating point errors up to 10^-2** (id = 2)
   It allows the floating point numbers to be inaccurate i.e. we can accept the errors up 
@@ -58,7 +60,7 @@ There are six default test case judges:
 
     The problem of determining first *n* numbers in decimal expansion of the number |pi| for given *n*. The challange is to solve that problem with the shortest possible source code.
 
-**Akademia** (id = 9)
+**Academy** (id = 9)
   TODO: Opis i nazwa taka polsko brzmiąca.
 
 **Exact judge** (id = 10)
@@ -90,15 +92,27 @@ Used memory
 We have two default master judges both mentioned in section :ref:`problems <judges-master>`:
 
 **Generic masterjudge** (id = 1000)
-  It gathers information from test case judges and requires each of them to achieve *"accepted"* status to establish final status as the *"accepted"*.
+  It gathers information from test case judges and requires each of them to achieve *"accepted"* status to establish final status as the **accepted**.
+
+  Example accepted result from `SPOJ <http://www.spoj.com>`_:
+
+  .. image:: ../_static/status-generic.png
+    :width: 700px
+    :align: center
 
   When any test case ends with error the final answer is inherited from the first failed test case. For example when the problem has five test cases and the second and the fourth ones failed, the final result is inherited from the second test case.
 
-  Example result from `SPOJ <http://www.spoj.com>`_:
+  Example **time limit exceeded** and **wrong answer** results from `SPOJ <http://www.spoj.com>`_:
+  
+  .. image:: ../_static/status-tle.png
+    :width: 700px
+    :align: center  
 
-  .. image:: ../_static/status-generic.png
-   :width: 700px
-   :align: center
+  |
+
+  .. image:: ../_static/status-wa.png
+    :width: 700px
+    :align: center  
 
   Generic masterjudge combines the execution times of all testcases and yields the sum as the final score.
   
