@@ -62,17 +62,23 @@ The master judge is a high order level component and it can arbitrary assign any
 We separate statuses into two groups: semantic and systemic. The semantic statuses are strictly related to the correctness of the answer to the problem. On the other hand, the systemic statuses are syntactic related and the judge gets it from the system.
 
 **Semantic statuses**
- * **Accepted (AC)** the submission is a correct solution to the problem.
- * **Wrong answer (WA)** the submission is an incorrect solution.     
+  * **Accepted (AC)** the submission is a correct solution to the problem.
+  * **Wrong answer (WA)** the submission is an incorrect solution.     
 
 **Sytemic statuses**
- * **Time limit exceeded (TLE)** the submission execution took too long.
- * **Runtime error (RE)** the error occurred during program execution.
- * **Compilation error (CE)** the error occurred during compilation or syntax validation in interpreter.
- * **Internal error (IE)** the error occurred on the serivice side. One of the possible reasons can be poorly designed test case judge or master judge.
+  * **Time limit exceeded (TLE)** the submission execution took too long.
+  * **Runtime error (RE)** the error occurred during program execution.
+
+    * **NZEC** (Non-Zero Exit Code) main function returned error signal (for example main function in C should return 0)
+    * **SIGSEGV** the program touched unallocated memory
+  * **Compilation error (CE)** the error occurred during compilation or syntax validation in interpreter.
+  * **Internal error (IE)** the error occurred on the serivice side. One of the possible reasons can be poorly designed test case judge or master judge.
+
+**Runtime errors**
 
 
-The Integral error covers wide area of errors thus in the near future we will introduce another type of error for judge and master judge errors.
+.. note::
+  The Integral error covers wide area of errors thus in the near future we will introduce another type of error for judge and master judge errors.
 
 To ilustrate errors consider again the following example:
 
@@ -110,7 +116,13 @@ The first error which can occur is the *compilation error*, for example submitti
      return 0;
    }
 
-To obtain *execution error* we can refer to unallocated memory:
+.. image:: ../_static/status-appendix-ce.png
+    :width: 700px
+    :align: center
+
+|
+
+To obtain *runtime error* we can refer to unallocated memory:
 
 .. code-block:: cpp
    
@@ -132,6 +144,12 @@ To obtain *execution error* we can refer to unallocated memory:
      }
      return 0;
    }
+
+.. image:: ../_static/status-appendix-re.png
+    :width: 700px
+    :align: center
+
+|
 
 We will *exceed time limit* with worse algorithm (if test cases are rich enough):
 
@@ -163,6 +181,12 @@ We will *exceed time limit* with worse algorithm (if test cases are rich enough)
      return 0;
    }
 
+.. image:: ../_static/status-appendix-tle.png
+    :width: 700px
+    :align: center
+
+|
+
 Bad output formatting causes *wrong answer* status:
 
 .. code-block:: cpp
@@ -186,6 +210,12 @@ Bad output formatting causes *wrong answer* status:
      return 0;
    }
 
+.. image:: ../_static/status-appendix-wa.png
+    :width: 700px
+    :align: center
+
+|
+
 At the end we present correct and optimal solution which passes all test cases and obtains *accepted* status:
 
 .. code-block:: cpp
@@ -208,3 +238,7 @@ At the end we present correct and optimal solution which passes all test cases a
      }
      return 0;
    }
+
+.. image:: ../_static/status-appendix-acc.png
+    :width: 700px
+    :align: center
