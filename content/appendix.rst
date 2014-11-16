@@ -83,6 +83,21 @@ In the :ref:`problem example <full-problem-example>` section you can see properl
 **Footnotes**
   .. [#] The Initial Sum problem is to calculate the value of *1* + *2* + *3* + ... + *n* for given integer *n*.
 
+
+.. _appendix-testing-memory-complexity:
+
+Testing the memory complexity of algorithms
+-----------------------------------------
+
+Similarly to time complexity testing one can test memory complexity of algorithms. Consider the simplest situation when the author knows **two** different algorithms for a problem, say *A* and *B*. Let us assume that algorithm *A* consumes small and constant amount of memory and algorithm *B* memory needs are dependent on the problem input data (possibly big amounts).
+
+You can distinguish between solutions *A* and *B* by constructing adjusted test cases. If we denote that designed test case makes algorithm *A* to use *m*\ :sub:`A` \ megabytes of memory and algorithm *B* to use *m*\ :sub:`B` \ megabytes of memory and these values are separated you can set the memory limit *m*\ :sub:`0` \ megabytes somewhere between *m*\ :sub:`A` \ and *m*\ :sub:`B`\ .
+
+.. important::
+  We **do not** directly support memory limit option due to complications with solutions written in virtual machine interpreted languages (for example Java languages family).
+
+Due to the note above you need to approach individually to limit the memory that program can use. As we said there is no single parameter which sets memory limit. To obtain desired functionality you can construct custom *master judge* and limit the memory inside separetely for each programming language you allow to use. 
+
 .. _appendix-statuses:
 
 Statuses
