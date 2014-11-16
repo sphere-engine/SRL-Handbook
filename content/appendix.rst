@@ -46,7 +46,21 @@ As you can see it is possible to pack a large number of problem instance into si
 
 .. note::
   Multiple test cases should rather be used to test different aspect of the problem.
-   
+
+
+.. _appendix-testing-time-complexity:
+
+Testing the time complexity of algorithms
+-----------------------------------------
+
+Test cases give a possibility of verification time complexity of algorithms.
+
+.. note::
+  Presented method **is not** a real time complexity testing, slower algorithm can beat the faster one when well optimised for the test cases and the machine. 
+
+  It **is also not** a universal method - changing the machine can allow slower algorithms to pass test cases designed for faster algorithms only.
+
+
 .. _appendix-statuses:
 
 Statuses
@@ -69,16 +83,15 @@ We separate statuses into two groups: semantic and systemic. The semantic status
   * **Time limit exceeded (TLE)** the submission execution took too long.
   * **Runtime error (RE)** the error occurred during program execution.
 
-    * **NZEC** (Non-Zero Exit Code) main function returned error signal (for example main function in C should return 0)
-    * **SIGSEGV** the program touched unallocated memory
+    * **NZEC** (Non-Zero Exit Code) main function returned error signal (for example main function in C/C++ should return 0).
+    * **SIGSEGV** the program accessed unallocated memory (segmentation fault).
+    * **SIGABRT** the program received abort signal, usually programmer controls it (for example when C/C++ assert function yields false).
+    * **SIGFPE** the floating point error, usually occurs when dividing by 0.
   * **Compilation error (CE)** the error occurred during compilation or syntax validation in interpreter.
   * **Internal error (IE)** the error occurred on the serivice side. One of the possible reasons can be poorly designed test case judge or master judge.
 
-**Runtime errors**
-
-
 .. note::
-  The Integral error covers wide area of errors thus in the near future we will introduce another type of error for judge and master judge errors.
+  The Internal error covers wide area of errors (including server errors) thus in the near future we will introduce another type of error for judge and master judge errors.
 
 To ilustrate errors consider again the following example:
 
