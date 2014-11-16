@@ -114,4 +114,4 @@ it *judging*. The judge returns the status of the submission. Note that the diag
 of the idea and we will extend both the picture and the explanation.
 
 **Footnotes**
-  .. [#] Body elements go here.In case of script languages we use proper interpreter to run the code.
+  .. [#] Body elements go here. In case of script languages we use proper interpreter to run the code.

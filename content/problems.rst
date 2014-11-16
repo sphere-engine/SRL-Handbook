@@ -173,21 +173,8 @@ Referring to the *Integer Power* problem we present how we could prepare followi
 **Time limit**
 
 We have already pointed that one of the features of online judging is the possiblity of estimating 
-the time complexity. To achieve that the author of the problem has to adjust the timeout for program 
-execution. 
-
-Consider the case when the author knows two different algorithms for a problem, say *A* and *B*. 
-Let us assume that the algorithm *A* is noticeably faster than the algorithm *B*. It is not very 
-easy and obvious how to preper test cases to distinguish between these two algorithms. However, 
-assuming that we have input data which is processed in the time *t*\ :sub:`A`\ for the algorithm *A* 
-which is much faster than execution time *t*\ :sub:`B` for the algorithm *B* we can simply set the 
-time limit somewhere between those values.
-
-With the timeout *t*\ :sub:`A`\ |le| *t*\ :sub:`0`\ |le| *t*\ :sub:`B`\ we can assume that *A*-like algorithms 
-will pass the test case and *B*-like algorithms will fail it due to exceeding the time limit.
-
-.. caution::        
-  The presented approach highly depends on the machine thus you need to adjust your time limit to the computing cluster rather then your local machine.
+the time complexity. To achieve that the author of the problem has to adjust the *timeout* for program 
+execution. We cover this topic in :ref:`testing time complexity <appendix-testing-time-complexity>` appendix.
 
 .. admonition:: Example (part 5)
   :class: note

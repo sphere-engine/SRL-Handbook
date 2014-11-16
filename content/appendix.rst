@@ -53,13 +53,35 @@ As you can see it is possible to pack a large number of problem instance into si
 Testing the time complexity of algorithms
 -----------------------------------------
 
-Test cases give a possibility of verification time complexity of algorithms.
+Test cases along with time limits give a possibility of verification time complexity of algorithms. Consider the most basic case when the author knows **two** different algorithms for a problem, say *A* and *B* and let us assume that the algorithm *A* is noticeably faster than the algorithm *B*.
 
 .. note::
-  Presented method **is not** a real time complexity testing, slower algorithm can beat the faster one when well optimised for the test cases and the machine. 
+  It is not always easy and obvious how to preper test cases to distinguish between two algorithms.
+
+Assuming that we have input data which is processed in the time *t*\ :sub:`A`\ for the algorithm *A* 
+which is much faster than execution time *t*\ :sub:`B`\ for the algorithm *B* we can simply set the 
+time limit somewhere between those values.
+
+.. important::        
+  The presented approach highly depends on the machine thus you need to adjust your time limit to the computing cluster rather then your local machine.
+
+With the timeout *t*\ :sub:`A`\ |le| *t*\ :sub:`0`\ |le| *t*\ :sub:`B`\ we can assume that *A*-like algorithms 
+will pass the test case and *B*-like algorithms will fail it due to exceeding the time limit.
+
+.. caution::
+  Presented method **is not** a real time complexity testing, slower algorithm can beat the faster one when it is well technically optimized for the test cases and the machine. 
 
   It **is also not** a universal method - changing the machine can allow slower algorithms to pass test cases designed for faster algorithms only.
 
+The sorting problem is one of the most demonstrative example when there are many different solutions. All natural solutions need approximetly *n*\ :sup:`2` \ operations to sort the sequence of length *n*. However, the more sophisticated algorithms guarantee approximately *n*\ log(\ *n*\ ) operations which is significantly better result.
+
+In the :ref:`problem example <full-problem-example>` section you can see properly prepared test cases which distinguish solutions for *The Initial Sum*\ [#]_ \ problem.
+
+.. note::
+  Obviously for problems with many (not only *2*) solutions of different speeds you can construct a hierarchy of test cases to reflect the gradation of solutions in scores.
+
+**Footnotes**
+  .. [#] The Initial Sum problem is to calculate the value of *1* + *2* + *3* + ... + *n* for given integer *n*.
 
 .. _appendix-statuses:
 
@@ -68,8 +90,8 @@ Statuses
 
 There are two levels when the status is assigned to the submission:
 
- * **test case** the status produced by the test case judge
- * **master judge**
+ * **test case** the status is produced by the test case judge,
+ * **master judge** the status is a combination of statuses from test cases.
 
 The master judge is a high order level component and it can arbitrary assign any status to the submission. We are going to focus on the test case judge statuses.
 

@@ -1,3 +1,5 @@
+.. _full-problem-example:
+
 ===============
 Problem example
 ===============
@@ -156,7 +158,10 @@ Computational power of current machines is enough to finish first test case inst
 
 First *1000* positive integers give us the assurance that solution is mathematically correct. We have also added single test with big number i.e. *n = 1000000* to make sure that user's solution bases on *long long* type. On the other hand the second test case is rich enough to make the first algorithm to exceed even *5s* time limit. 
 
-The second algorithm works fast enough to pass that test case in time below *0.1s*. We have huge gap between *0.1s* and *5s* thus we can easily choose safe value as our time limit, for example *1s*.
+The second algorithm works fast enough to pass that test case in time below *0.1s*. There is a huge gap between *0.1s* and *5s* thus we can easily choose safe value as our time limit, for example *1s*.
+
+.. note::
+  For extended information about distinguishing the efficiency of algorithms see :ref:`testing time complexity <appendix-testing-time-complexity>` appendix.
 
 We still haven't chosen judges for test cases and master judge for the problem. We don't have floating point numbers in our output file specification thus we rather decide to choose *Ignoring extra whitespaces* judge for both test cases. It leaves users with possiblity of small formating errors without risk of unwanted rejections of theirs solutions. For example it is possible to replace new line characters with spaces in output formatting and still pass the test case.
 
