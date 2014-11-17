@@ -113,5 +113,6 @@ The final step is the procedure of comparing the user's output file with the mod
 it *judging*. The judge returns the status of the submission. Note that the diagram is a simplified sketch 
 of the idea and we will extend both the picture and the explanation.
 
-**Footnotes**
-  .. [#] Body elements go here. In case of script languages we use proper interpreter to run the code.
+.. rubric:: Footnotes
+
+.. [#] Body elements go here. In case of script languages we use proper interpreter to run the code.

@@ -91,6 +91,8 @@ For example when your test cases verify three aspects *A*, *B* and *C* of the pr
    * **b,c** - *80%*
    * **a,b,c** - *100%*
 
+.. _master-judges-forbidden-structures:
+
 Forbidden structures in source code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -100,3 +102,20 @@ The problem setter may require that the solution cannot use some programming str
   :class: note
 
   Master judge uses access to the user's source code to detect usages of forbidden keywords (for example loops: while, for, goto). When forbidden keyword is detected the final status is set to *wrong aswer* in other case the master judge performs classical verification (for example the same as Generic masterjudge).
+
+
+.. _master-judges-memory-limits:
+
+Used memory limitations
+~~~~~~~~~~~~~~~~~~~~~~~
+
+We cannot directly support memory limit due to the reasons explained in :ref:`testing the memory complexity of algorithms <appendix-testing-memory-complexity>` appendix. To make possible to bound the amount of available memory one can implement master judge for that purpose.
+
+.. admonition:: Master judge description
+  :class: note
+
+  Master judge gathers the information of used memory from test case judges and takes the maximum value as the result (note that this is the behaviour of default master judges). We verify the memory limit with respect to the user's solution programming language to adjust the master judge for all programming languages we allow to use.
+
+.. important:: 
+  It's very imporant to adjust the memory limit to the programming language due to different memory needs of programs in different languages.
+

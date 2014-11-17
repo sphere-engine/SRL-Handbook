@@ -61,7 +61,7 @@ There are six default test case judges:
     The problem of determining first *n* numbers in decimal expansion of the number |pi| for given *n*. The challange is to solve that problem with the shortest possible source code.
 
 **Academy** (id = 9)
-  TODO: Opis i nazwa taka polsko brzmiąca.
+  It works exactly the same as *Ignoring extra whitespaces* judge but in addition it gives the access to difference between model output file and user's output. Read :ref:`submission information <appendix-submission-information>` appendix to learn more about the place where the difference between files is stored.
 
 **Exact judge** (id = 10)
   It requires output files to be identical.
@@ -84,7 +84,7 @@ Execution time
   The overall execution time is the sum of times from test case judges.
 
 Used memory
-  The overall used memory is the maxumum value of used memory from test case judges.
+  The overall used memory is the maximum value of used memory from test case judges.
 
 .. important::
   The final status and the score can be freely combined based on statuses and scores from test case judges.
@@ -148,3 +148,25 @@ We have two default master judges both mentioned in section :ref:`problems <judg
 
   The least advanced (but in some way correct) solutions will pass the first test case and achieve the result of *33%* while the more complex solutions (implementing big numbers) are able to pass the first and the second test and achieve the result of *66%*. To achieve the best result of *100%* the solution needs to implement both big numbers and fast power algorithms to pass all three test cases.
         
+
+.. _master-judges-flags:        
+
+Enabling master judge
+~~~~~~~~~~~~~~~~~~~~~
+
+The crucial part of setting the master judge is to decide how it should interpret the score. There are three options the author can choose:
+
+  - binary (bin)
+  - maximum (max)
+  - minimum (min)
+
+Setting any of these options determines what is the final submission's score and which score is better.
+
+Binary
+  The final success result is simply **accepted** status and the score is the execution time. The faster submissions are better by default. The *Generic masterjudge* usually works with that option.
+
+Maximum
+  The final score comes from test case judges and we establish that the greater values are the better ones. It is the proper choice for the *Score is % of correctly solved sets* masterjudge.
+
+Minimum
+  The final score comes from test case judges and we establish that the smaller values are the better ones. For example usage of *Score is source length* test case judge yields the score intended to be minimised.

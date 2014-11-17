@@ -75,19 +75,16 @@ will pass the test case and *B*-like algorithms will fail it due to exceeding th
 
 The sorting problem is one of the most demonstrative example when there are many different solutions. All natural solutions need approximetly *n*\ :sup:`2` \ operations to sort the sequence of length *n*. However, the more sophisticated algorithms guarantee approximately *n*\ log(\ *n*\ ) operations which is significantly better result.
 
-In the :ref:`problem example <full-problem-example>` section you can see properly prepared test cases which distinguish solutions for *The Initial Sum*\ [#]_ \ problem.
+In the :ref:`problem example <full-problem-example>` section you can see properly prepared test cases which distinguish solutions for *The initial sum*\ [#]_ \ problem.
 
 .. note::
   Obviously for problems with many (not only *2*) solutions of different speeds you can construct a hierarchy of test cases to reflect the gradation of solutions in scores.
-
-**Footnotes**
-  .. [#] The Initial Sum problem is to calculate the value of *1* + *2* + *3* + ... + *n* for given integer *n*.
 
 
 .. _appendix-testing-memory-complexity:
 
 Testing the memory complexity of algorithms
------------------------------------------
+-------------------------------------------
 
 Similarly to time complexity testing one can test memory complexity of algorithms. Consider the simplest situation when the author knows **two** different algorithms for a problem, say *A* and *B*. Let us assume that algorithm *A* consumes small and constant amount of memory and algorithm *B* memory needs are dependent on the problem input data (possibly big amounts).
 
@@ -96,7 +93,16 @@ You can distinguish between solutions *A* and *B* by constructing adjusted test 
 .. important::
   We **do not** directly support memory limit option due to complications with solutions written in virtual machine interpreted languages (for example Java languages family).
 
-Due to the note above you need to approach individually to limit the memory that program can use. As we said there is no single parameter which sets memory limit. To obtain desired functionality you can construct custom *master judge* and limit the memory inside separetely for each programming language you allow to use. 
+Due to the note above you need to approach individually to limit the memory that program can use. As we said there is no single parameter which sets memory limit. To obtain desired functionality you can construct custom *master judge* and limit the memory inside separetely for each programming language you allow to use for solutions.
+
+.. admonition:: Example
+  :class: note 
+
+  *The prime number*\ [#]_ \ problem can be solved in constant memory by looking for divisors or alternatively with Sieve of Eratosthenes algorithm which consumes the amount of memory which depends on the input number.
+
+
+
+  
 
 .. _appendix-statuses:
 
@@ -292,3 +298,19 @@ At the end we present correct and optimal solution which passes all test cases a
 .. image:: ../_static/status-appendix-acc.png
     :width: 700px
     :align: center
+
+|
+
+.. _appendix-submission-information:
+
+Submission information
+----------------------
+
+TODO: How the information from judges flows.
+
+|
+
+.. rubric:: Footnotes
+
+.. [#] The initial sum problem is to calculate the value of *1* + *2* + *3* + ... + *n* for given integer *n*.
+.. [#] The prime number problem is to verify if *n* is a prime number.
