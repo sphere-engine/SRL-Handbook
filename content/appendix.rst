@@ -55,7 +55,16 @@ Interactive problems
 
 The standard schema of the submission processing assumes that at first the execution of the user's program generates the user's output and after that the test case judge in a certain way compares it with the model output. In the *interactive problem* these phases are executed simultaneously. 
 
-The execution of the user's program starts and its standard output is directed to the test case judge as its standard input. In the same time the test case judge program starts and its standard output is directed to the user's program as its standard input. This allows a *conversation* between the user's program and the test case judge. 
+The execution of the user's program starts and its standard output is directed to the test case judge as its standard input. In the same time the test case judge program starts and its standard output is directed to the user's program as its standard input. This allows a *conversation* between the user's program and the test case judge as you can see in the picture below.
+
+.. _interactive-problem-digram:
+
+.. image:: ../_static/interactive-diagram.png
+   :alt: Interactive problem communication diagram
+   :width: 350px
+   :align: center
+
+|
 
 .. important::
 	Interactive problem requires dedicated test case judge.
