@@ -48,6 +48,43 @@ As you can see it is possible to pack a large number of problem instance into si
   Multiple test cases should rather be used to test different aspect of the problem.
 
 
+.. _appendix-interactive-problems:
+
+Interactive problems
+--------------------
+
+The standard schema of the submission processing assumes that at first the execution of the user's program generates the user's output and after that the test case judge in a certain way compares it with the model output. In the *interactive problem* these phases are executed simultaneously. 
+
+The execution of the user's program starts and its standard output is directed to the test case judge as its standard input. In the same time the test case judge program starts and its standard output is directed to the user's program as its standard input. This allows a *conversation* between the user's program and the test case judge. 
+
+.. important::
+	Interactive problem requires dedicated test case judge.
+
+When the conversation is open, the test case judge can interactively generate input for the user's program depending on its output and in the same time it is possible to verify the correctness of the results.
+
+.. admonition:: Interactive problem example
+  :class: note
+
+  Write a program that will win the chess game with the opponent who make random legal moves.
+
+  **Input**
+  	The first line of the input contains the number *s* which can be *0* or *1*. If *s* = *0*, then your opponent plays white pieces and if *s* = *1* then you plays white pieces. In the next lines there will be moves of your opponent write in the standard chess algebraic notation (for example *e4 e5* means that the piece on *e4* moves to *e5*). You can assume that all opponent moves are legal. When the match is over the final line of the input will be "win" or "lose" and the program will be accepted only if the user's solution win the match.
+
+  **Output**
+  	If *s* = *1* you start with the first move (i.e. you write the line with your move in the standard chess algebraic notation) and after that you write your next move after you get your opponent's move and so on and so forth. 
+  	If *s* = *0* you wait for your opponent's move and then again you play move by move.
+
+By the description of the interactive problem example you can see that we need to implement the test case judge which is able to play random chess game:
+ 
+	- it remembers the state of the chess board,
+	- it can make legal moves
+	- it can verify that the game is over and who is the winner
+	- it accepts only solutions which won the game
+
+.. attention::
+	Due to common issues with the standard output writes we highly recommend you to clear the output buffer after printing each line. It can be done by using the *fflush(stdout)* command in the C/C++ languages.
+
+
 .. _appendix-testing-time-complexity:
 
 Testing the time complexity of algorithms
