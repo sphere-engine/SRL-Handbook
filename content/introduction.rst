@@ -15,8 +15,8 @@ input data. In that situation even simple programs require at least small human 
 interface. Let us consider the following toy example along with the *C* language solution:
 
 
-Integer power
-  Write the program which takes two numbers *a* and *b* and returns the value of *a*\ :sup:`b`\.
+The *integer power* problem description
+  Write a program which takes two numbers *a* and *b* and returns the value of *a*\ :sup:`b`\.
 
 .. _integer-power-human:
 
@@ -61,7 +61,7 @@ Automatic verification
 
 Moving on to the online judging we will present you how we need to change approach. 
 Now whole the process of the compiling, running and testing is going to be conducted 
-by the machine thus we need to clearly specify how the program should communicate - 
+by the machine thus the problem setter needs to clearly specify how the program should communicate - 
 that part we call *input / output specification*.
 
 Suppose we want to prepare the *Integer power* problem to automatic judging and suppose the presented source code fulfills desired input/output specification (usually the direction is opposite - first we specify the input and output structure then we implement the solution). It means we need, along with the problem definition, give the information that program should expect two integer numbers on the input and needs to print the information "Print a: Print b: *a* to the power of *b = a*\ :sup:`b`\". Clearly the output specification is highly unnatural.
@@ -96,9 +96,9 @@ How simple can the previous *Integer power* problem could be if we drop all the 
 
 
 .. tip::
-  We highly recommend you to put emphasis on *input / output specification* when you will present your instance of the service to your own users. 
+	Base on our own experience with online judge beginners we know that it's the most dangerous when you deal with developers who already have basic knowledge along with some habits. We highly recommend you to put emphasis on *input / output specification* when you will present your instance of the service to your own users. 
 
-Base on our own experience with online judge beginners users we know that it's most dangerous when you deal with developers who have some basic knowledge already and along with that probably some habits. We present extended description of input and output specification in the next section.
+We present extended description of input and output specification in the next section.
 
 Finally, let us take a look at the simplified submission flow diagram:
         
@@ -108,11 +108,11 @@ Finally, let us take a look at the simplified submission flow diagram:
 
 In this diagram we can see how user's source code go through the system. Firstly it is compiled by a 
 proper compiler (according to the selected programming language) which produces executable file\ [#]_\. 
-In the next step created executable is fed with model input data and we obtain the user's output file. 
+In the next step created executable is fed with model input data and the system obtains the user's output file. 
 The final step is the procedure of comparing the user's output file with the model output file, we call 
 it *judging*. The judge returns the status of the submission. Note that the diagram is a simplified sketch 
 of the idea and we will extend both the picture and the explanation.
 
 .. rubric:: Footnotes
 
-.. [#] Body elements go here. In case of script languages we use proper interpreter to run the code.
+.. [#] In case of script languages we use proper interpreter to run the code.

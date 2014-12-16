@@ -46,7 +46,7 @@ Every submission needs to have precised *programming language* to choose proper 
 The problem description is the crucial part for users to make it possible to solve the problem.
 
 Let us recall the *Integer Power* problem since we are going to use it as a demonstration 
-example. The task described in the problem is to compute the value of *b = a*\ :sup:`b` \ for given 
+example. The task described in the problem is to compute the value of *a*\ :sup:`b` \ for given 
 integers *a* and *b*
 
 .. _problem-description:
@@ -147,7 +147,7 @@ The output file should contain corresponding correct answers formatted in accord
 output specification.
 
 .. note::
-  It is not necessery to write the solution to the program to create the model output file - it can be obtained in any manner.
+  It is not necessery to write the solution to the program to create the model output file - it can be obtained in any manner, however, it is a good practice to have model solution.
 
 Referring to the *Integer Power* problem we present how we could prepare following test cases:
 
@@ -166,6 +166,12 @@ Referring to the *Integer Power* problem we present how we could prepare followi
      | **Output file**
      | 1
 
+   **Test case 3**
+     | **Input file**
+     | 2 10
+     | **Output file**
+     | 1024
+
 
 .. tip::
   It is recomended to construct the problems that are able to repeat the desired procedure as many times as we want to make it possible to test the user's submission with one test case. There are many reasons for that approach and for further information please visit :ref:`good test cases design<appendix-good-test-cases-design>` appendix.
@@ -173,7 +179,7 @@ Referring to the *Integer Power* problem we present how we could prepare followi
 **Time limit**
 
 We have already pointed that one of the features of online judging is the possiblity of estimating 
-the time complexity. To achieve that the author of the problem has to adjust the *timeout* for program 
+the time complexity. To achieve that the author of the problem has to adjust the *time limit* for program 
 execution. We cover this topic in :ref:`testing time complexity <appendix-testing-time-complexity>` appendix.
 
 .. admonition:: Example (part 5)
@@ -197,7 +203,7 @@ We support problem setters with default judges:
     inaccurate i.e. we can accept the errors up to for example *0.01*
   * **Exact judge** - requires output files to be identical 
 
-More information about default judges you can find in the section :ref:`judges <judges-normal>`. You find there also information about *the score*, for now you can assume that the score is the test case execution time.
+More information about default judges you can find in the section :ref:`judges <judges-normal>`. You find there also information about *the score*.
 
 .. tip::
   The *Ignoring extra whitespaces* judge is one of the most popular default choice. It is more liberal for output formating errors which in fact doesn't affect on the solution semantic correctness. 
@@ -238,7 +244,7 @@ You can learn more in :ref:`Master judges <master-judges-normal>`.
 
   Further information about designing master judges you can find in the section :ref:`writing master judges <judges-advanced>`.
 
-.. admonition:: Example (part 6)
+.. admonition:: Example (part 7)
   :class: note
 
   The last missing part for the example we successively improve is the choice of master judge. We created two test cases and there is no need to implement the specific own master judge thus we select default one. 

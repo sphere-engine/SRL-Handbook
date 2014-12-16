@@ -10,7 +10,7 @@ This document is the guide for users of our *Online Judge* based services includ
       
 We focus on **the essence of functionality** namely the idea of processing source codes submitted into the system. As the user of one of our products you will be the creator of new programming problems. 
 
-Let us introduce the convention of naming - the person who creates the problem is *the problem setter* or *the author* and the person who use the service and solves the problem is just *the user*. All presented information are independent of the type of our service thus we just call it *service*. Also note that the services are rather oriented to deal with console applications with standard input / output communication. 
+Let us introduce the convention of naming - the person who creates the problem is *the problem setter* or *the author* and the person who use the service and solves the problem is just *the user*. All presented information are independent of the type of our service thus we just call it *service*. Also note that the service is mostly oriented to deal with console applications with standard input / output communication. 
 
 We provide simple definitions in dictionary, get familiar with them to avoid future problems with understanding.
 
@@ -74,5 +74,3 @@ Service
 **Problem setter** 
   User of the service with the permissions to create and manage problems.
   
-**Administrator**
-  User of the service with full set of permissions.
