@@ -96,7 +96,7 @@ By the description of the interactive problem example you can see that we need t
 
 .. _appendix-testing-time-complexity:
 
-Testing the time complexity of algorithms
+Time complexity
 -----------------------------------------
 
 Test cases along with time limits give a possibility of verification time complexity of algorithms. Consider the most basic case when the author knows **two** different algorithms for a problem, say *A* and *B* and let us assume that the algorithm *A* is noticeably faster than the algorithm *B*.
@@ -129,7 +129,7 @@ In the :ref:`problem example <full-problem-example>` section you can see properl
 
 .. _appendix-testing-memory-complexity:
 
-Testing the memory complexity of algorithms
+Memory complexity
 -------------------------------------------
 
 Similarly to time complexity testing one can test memory complexity of algorithms. Consider the simplest situation when the author knows **two** different algorithms for a problem, say *A* and *B*. Let us assume that algorithm *A* consumes small and constant amount of memory and algorithm *B* memory needs are dependent on the problem input data (possibly big amounts).
