@@ -94,7 +94,7 @@ We have two default master judges both mentioned in section :ref:`problems <judg
 **Generic masterjudge** (id = 1000)
   It gathers information from test case judges and requires each of them to achieve *"accepted"* status to establish final status as the **accepted**.
 
-  Example accepted result from `SPOJ <http://www.spoj.com>`_:
+  Example accepted result:
 
   .. image:: ../_static/status-generic.png
     :width: 700px
@@ -102,7 +102,7 @@ We have two default master judges both mentioned in section :ref:`problems <judg
 
   When any test case ends with error the final answer is inherited from the first failed test case. For example when the problem has five test cases and the second and the fourth ones failed, the final result is inherited from the second test case.
 
-  Example **time limit exceeded** and **wrong answer** results from `SPOJ <http://www.spoj.com>`_:
+  Example **time limit exceeded** and **wrong answer** results:
   
   .. image:: ../_static/status-tle.png
     :width: 700px
@@ -123,7 +123,7 @@ We have two default master judges both mentioned in section :ref:`problems <judg
   It is a more liberal masterjudge which allows to accept incomplete solution with the score which is the 
   percentage of correctly solved test cases. 
 
-  Example result from `SPOJ <http://www.spoj.com>`_:
+  Example result:
   
   .. image:: ../_static/status-percentage.png
    :width: 700px
