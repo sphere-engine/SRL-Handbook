@@ -100,6 +100,8 @@ We have two default master judges both mentioned in section :ref:`problems <judg
     :width: 700px
     :align: center
 
+  |
+
   When any test case ends with error the final answer is inherited from the first failed test case. For example when the problem has five test cases and the second and the fourth ones failed, the final result is inherited from the second test case.
 
   Example **time limit exceeded** and **wrong answer** results:
@@ -114,6 +116,8 @@ We have two default master judges both mentioned in section :ref:`problems <judg
     :width: 700px
     :align: center  
 
+  |
+  
   Generic masterjudge combines the execution times of all testcases and yields the sum as the final score.
   
   .. tip::
@@ -129,6 +133,8 @@ We have two default master judges both mentioned in section :ref:`problems <judg
    :width: 700px
    :align: center
 
+  |
+  
   For example when the problem has five test cases and only the second failed, the final score is equal to *80%*. The advantage is that the user gets more information about the correctness level of its solution.
 
   .. tip::
