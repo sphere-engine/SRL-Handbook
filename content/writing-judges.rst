@@ -7,7 +7,7 @@ However there are problems which require individual solutions due to nature of t
 
 .. _judges-advanced:
         
-Test case judges
+Writing test case judges
 ----------------
 
 Test case judge has access to the following information:
@@ -57,7 +57,7 @@ It is easy to see that *1-2-3-1* is the same cycle as *2-3-1-2*. We could add th
 
 .. _master-judges-advanced:
 
-Master judges
+Writing master judges
 -------------
 
 Similarly to test case judges it is possible to create custom master judges. In certain situations the problem setter may want to extend functionality of existing master judge or even implement brand new one. In this section we present examples of the master judges along with a motivation.
